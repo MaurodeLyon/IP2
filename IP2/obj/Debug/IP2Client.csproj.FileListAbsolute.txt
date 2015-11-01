@@ -1,0 +1,3 @@
+C:\Users\mauro\Documents\GitHub\IP2\IP2\bin\Debug\IP2.exe.config
+C:\Users\mauro\Documents\GitHub\IP2\IP2\obj\Debug\IP2.exe
+C:\Users\mauro\Documents\GitHub\IP2\IP2\obj\Debug\IP2.pdb

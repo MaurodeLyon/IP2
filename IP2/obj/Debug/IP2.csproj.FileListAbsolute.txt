@@ -1,0 +1,9 @@
+c:\users\mauro\documents\visual studio 2015\Projects\IP2\IP2\bin\Debug\IP2.exe.config
+c:\users\mauro\documents\visual studio 2015\Projects\IP2\IP2\bin\Debug\IP2.exe
+c:\users\mauro\documents\visual studio 2015\Projects\IP2\IP2\bin\Debug\IP2.pdb
+c:\users\mauro\documents\visual studio 2015\Projects\IP2\IP2\obj\Debug\IP2.csprojResolveAssemblyReference.cache
+c:\users\mauro\documents\visual studio 2015\Projects\IP2\IP2\obj\Debug\IP2.Patient_Applicatie.resources
+c:\users\mauro\documents\visual studio 2015\Projects\IP2\IP2\obj\Debug\IP2.Properties.Resources.resources
+c:\users\mauro\documents\visual studio 2015\Projects\IP2\IP2\obj\Debug\IP2.csproj.GenerateResource.Cache
+c:\users\mauro\documents\visual studio 2015\Projects\IP2\IP2\obj\Debug\IP2.exe
+c:\users\mauro\documents\visual studio 2015\Projects\IP2\IP2\obj\Debug\IP2.pdb
