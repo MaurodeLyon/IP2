@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IP2Client", "IP2\IP2Client.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library", "Library\Library.csproj", "{E24D030B-1B8B-4086-ABED-E278E6724AB1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IP2Server", "IP2Server\IP2Server.csproj", "{B60272FC-0556-418B-8AC4-389EDC8DE9CD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simulator", "Simulator\Simulator.csproj", "{324651DB-F913-46D2-AB8E-BD5599D2C2E7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{E24D030B-1B8B-4086-ABED-E278E6724AB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E24D030B-1B8B-4086-ABED-E278E6724AB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E24D030B-1B8B-4086-ABED-E278E6724AB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B60272FC-0556-418B-8AC4-389EDC8DE9CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B60272FC-0556-418B-8AC4-389EDC8DE9CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B60272FC-0556-418B-8AC4-389EDC8DE9CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B60272FC-0556-418B-8AC4-389EDC8DE9CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{324651DB-F913-46D2-AB8E-BD5599D2C2E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{324651DB-F913-46D2-AB8E-BD5599D2C2E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{324651DB-F913-46D2-AB8E-BD5599D2C2E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{324651DB-F913-46D2-AB8E-BD5599D2C2E7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

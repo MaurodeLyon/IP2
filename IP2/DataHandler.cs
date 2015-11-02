@@ -16,8 +16,8 @@ namespace IP2
 
         public DataHandler()
         {
-            startBicyleConnection();
-            startServerConnection();
+            //startBicyleConnection();
+            //startServerConnection();
         }
 
         private void startServerConnection()
