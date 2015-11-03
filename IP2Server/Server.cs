@@ -61,7 +61,7 @@ namespace IP2Server
                     SaveMeasurement(protocol[1]);
                     break;
                 case "2":
-                    SendMeasurements();
+                    NetworkCommunication.SendMeasurements(client, measurements);
                     break;
             }
         }
@@ -69,11 +69,6 @@ namespace IP2Server
         private void SaveMeasurement(Object measurement)
         {
             measurements.Add(measurement);
-        }
-
-        private void SendMeasurements()
-        {
-            //
         }
     }
 }
