@@ -15,7 +15,7 @@ namespace Simulator
         private Stopwatch stopwatch;
         private long maxtime;
 
-        private int power, heartbeat, rpm, speed, distance, energy;
+        private int power, rpm, speed, distance, energy;
         public int Power
         {
             get { return power; }

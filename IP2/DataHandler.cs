@@ -12,17 +12,22 @@ namespace IP2
     class DataHandler
     {
         public string naam;
-        public string leeftijd;
-        public string gewicht;
+        public int leeftijd;
+        public int gewicht;
         public decimal minutes;
         public decimal seconds;
         public decimal minToeren;
         public decimal maxToeren;
         public decimal maxPower;
 
+        private ConnectionToBicycle bicycle;
+        private readonly string comport = "COM5";
+
         public DataHandler()
         {
-            //startBicyleConnection();
+            bicycle = new ConnectionToBicycle();
+            bicycle.initComm(comport);
+            ConnectionToBicycle.IncomingDataEvent += addMeasurment;
             //startServerConnection();
         }
 
@@ -31,45 +36,52 @@ namespace IP2
             throw new NotImplementedException();
         }
 
-        private void startBicyleConnection()
-        {
-            throw new NotImplementedException();
-        }
-
-
         internal void startMeasurment()
         {
             new Thread(startTraject).Start();
         }
 
+        private Patient patient;
+        private Meetsessie meetsessie;
         private void startTraject()
         {
-            Patient patient = new Patient(;
+            patient = new Patient(naam);
+            meetsessie = new Meetsessie(leeftijd, gewicht);
+            patient.meetsessies.Add(meetsessie);
             int amount_of_seconds = (int)((minutes * 60) + seconds);
+
             int toAdd = (int)maxPower - 25;
             int seconds_until_next_power_add = amount_of_seconds / toAdd;
             int tick = seconds_until_next_power_add;
+            int currentPower = 25;
+
             while (amount_of_seconds != 0)
             {
-                //save measurments to file
+                bicycle.sendData(ConnectionToBicycle.STATUS);
                 if (tick == 0)
                 {
                     tick = seconds_until_next_power_add;
-                    //add 1 power to the bicycle
+                    bicycle.sendData("CM");
+                    bicycle.sendData("PW " + currentPower);
+                    currentPower++;
                 }
                 else tick--;
                 Thread.Sleep(1000);
                 amount_of_seconds--;
             }
-            //traject ended
             stopTraject();
+        }
+
+        private void addMeasurment(string[] data)
+        {
+            meetsessie.addMeasurment(new Measurement(data));
         }
 
         private void stopTraject()
         {
-            throw new NotImplementedException();
+            bicycle.sendData(ConnectionToBicycle.RESET);
             //save logfile to server
-            //reset bicycle
+            throw new NotImplementedException();
         }
     }
 }

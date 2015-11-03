@@ -46,7 +46,6 @@
   <ItemGroup>
     <Compile Include="JsonCommunication.cs" />
     <Compile Include="NetworkCommunication.cs" />
-    <Compile Include="BicycleCommunication.cs" />
     <Compile Include="Patient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
