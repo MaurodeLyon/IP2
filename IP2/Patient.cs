@@ -41,6 +41,11 @@ namespace IP2
 
         private void Stop_button_Click(object sender, EventArgs e)
         {
+            Minutes.Enabled = true;
+            Seconds.Enabled = true;
+            minToeren.Enabled = true;
+            maxToeren.Enabled = true;
+            MaxPower.Enabled = true;
             dataHandler.stopTraject();
         }
 
