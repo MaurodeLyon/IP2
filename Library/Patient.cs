@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Library
 {
     [Serializable]
-    class Patient
+    public class Patient
     {
         public string naam;
         public int leeftijd;
@@ -28,7 +28,7 @@ namespace Library
         }
     }
     [Serializable]
-    class Meetsessie
+    public class Meetsessie
     {
         public DateTime datum;
         public List<Measurement> session;
@@ -45,7 +45,7 @@ namespace Library
     }
 
     [Serializable]
-    class Measurement
+    public class Measurement
     {
         public int pulse { get; }
         public int rpm { get; }

@@ -39,6 +39,7 @@ namespace IP2
             dataHandler.minToeren = minToeren.Value;
             dataHandler.maxToeren = maxToeren.Value;
             dataHandler.maxPower = MaxPower.Value;
+            dataHandler.naam = 
             dataHandler.startMeasurment();
         }
 
