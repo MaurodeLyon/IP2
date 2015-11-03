@@ -14,12 +14,12 @@ namespace IP2Server
     {
         private static int Port = 8800;
         private static TcpListener serverListener;
-        private static List<Object> measurements;
+        private List<Patient> patients;
 
         public Server()
         {
             serverListener = new TcpListener(IPAddress.Any, Port);
-            measurements = new List<Object>();
+            patients = new List<Patient>(); // to be replaced with list loaded from patient document
             GetConnections();
         }
 
@@ -32,7 +32,7 @@ namespace IP2Server
                     serverListener.Start();
                     Console.WriteLine("Server gestart, wachten op verbindingen...\r\n");
 
-                    while(true)
+                    while (true)
                     {
                         new Thread(Handler).Start(serverListener.AcceptTcpClient());
                         Console.WriteLine("Nieuwe verbinding geaccepteerd."
@@ -42,7 +42,7 @@ namespace IP2Server
 
                 getConnections.Start();
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine(e);
             }
@@ -54,21 +54,28 @@ namespace IP2Server
 
             string data = NetworkCommunication.ReadMessage(client);
             string[] protocol = data.Split('|');
-            
-            switch(protocol[0])
+
+            switch (protocol[0])
             {
                 case "1":
-                    SaveMeasurement(protocol[1]);
+                    AddPatientSession(protocol[1]);
                     break;
                 case "2":
-                    NetworkCommunication.SendMeasurements(client, measurements);
+                    NetworkCommunication.SendPatients(client, patients);
                     break;
             }
         }
 
-        private void SaveMeasurement(Object measurement)
+        private void AddPatientSession(Object _patient)
         {
-            measurements.Add(measurement);
+            Patient receivedPatient = _patient as Patient;
+            foreach (Patient patient in patients)
+            {
+                if (patient.naam == receivedPatient.naam)
+                    patient.meetsessies.Add(receivedPatient.meetsessies[0]);
+                else patients.Add(receivedPatient);
+
+            }
         }
     }
 }

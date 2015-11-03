@@ -18,10 +18,16 @@ namespace Library
             stream.Flush();
         }
 
-        public static void SendMeasurements(TcpClient client, List<Object> measurements)
+        public static void SendPatient(TcpClient client, Patient patient)
         {
             StreamWriter stream = new StreamWriter(client.GetStream(), Encoding.Unicode);
-            stream.Write(measurements);
+            stream.Write(patient);
+        }
+
+        public static void SendPatients(TcpClient client, List<Patient> patients)
+        {
+            StreamWriter stream = new StreamWriter(client.GetStream(), Encoding.Unicode);
+            stream.Write(patients);
         }
 
         public static string ReadMessage(TcpClient client)
