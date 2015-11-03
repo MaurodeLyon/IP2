@@ -14,4 +14,9 @@ C:\Users\Tom Remeeus\Documents\GitHub\IP2\Simulator\obj\Debug\Simulator.exe
 C:\Users\Tom Remeeus\Documents\GitHub\IP2\Simulator\obj\Debug\Simulator.pdb
 C:\Users\Tom Remeeus\Documents\GitHub\IP2\Simulator\bin\Debug\Simulator.exe
 C:\Users\Tom Remeeus\Documents\GitHub\IP2\Simulator\bin\Debug\Simulator.pdb
+<<<<<<< HEAD
 C:\Users\Tom Remeeus\Documents\GitHub\IP2\Simulator\obj\Debug\Simulator.csprojResolveAssemblyReference.cache
+=======
+C:\Users\mauro\Documents\GitHub\IP2\Simulator\bin\Debug\Newtonsoft.Json.dll
+C:\Users\mauro\Documents\GitHub\IP2\Simulator\bin\Debug\Newtonsoft.Json.xml
+>>>>>>> refs/remotes/origin/master

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,12 @@ namespace Library
             this.naam = naam;
             meetsessies = new List<Meetsessie>();
         }
+        [JsonConstructor]
+        public Patient(string naam, List<Meetsessie> meetsessies)
+        {
+            this.naam = naam;
+            this.meetsessies = meetsessies;
+        }
     }
     [Serializable]
     public class Meetsessie
@@ -32,12 +39,27 @@ namespace Library
         public int gewicht;
 
         public List<Measurement> session;
+
+        public Meetsessie()
+        {
+
+        }
+
         public Meetsessie(int leeftijd, int gewicht)
         {
+            datum = DateTime.Now;
             this.leeftijd = leeftijd;
             this.gewicht = gewicht;
-            datum = DateTime.Today;
             session = new List<Measurement>();
+        }
+
+        [JsonConstructor]
+        public Meetsessie(int leeftijd, int gewicht, List<Measurement> session)
+        {
+            datum = DateTime.Now;
+            this.leeftijd = leeftijd;
+            this.gewicht = gewicht;
+            this.session = session;
         }
 
         public void addMeasurment(Measurement measurment)
@@ -79,11 +101,23 @@ namespace Library
             distance = int.Parse(data[3]);
             requestedPower = int.Parse(data[4]);
             energy = int.Parse(data[5]);
-            int time = 0;
             string[] timeArray = data[6].Split(':');
             time += (int.Parse(timeArray[0]) * 60);
             time += int.Parse(timeArray[1]);
             actualPower = int.Parse(data[7]);
+        }
+
+        [JsonConstructor]
+        public Measurement(string pulse, string rpm, string speed, string distance, string requestedPower, string energy, string time, string actualPower)
+        {
+            this.pulse = int.Parse(pulse);
+            this.rpm = int.Parse(rpm);
+            this.speed = int.Parse(speed);
+            this.distance = int.Parse(distance);
+            this.requestedPower = int.Parse(requestedPower);
+            this.energy = int.Parse(energy);
+            this.time = int.Parse(time);
+            this.actualPower = int.Parse(actualPower);
         }
     }
 }

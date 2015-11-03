@@ -8,19 +8,31 @@ using System.Threading.Tasks;
 
 namespace Library
 {
-    class JsonCommunication
+    public class JsonCommunication
     {
-        public static void saveToJson(string path, Meetsessie session)
+        public static void savePatientJson(string path, Patient patient)
         {
-            string json = JsonConvert.SerializeObject(session);
+            string json = JsonConvert.SerializeObject(patient);
             File.WriteAllText(path, json);
         }
 
-        public static Meetsessie loadFromJson(string path)
+        public static Patient loadPatientJson(string path)
         {
             string jsonFile = File.ReadAllText(path);
+            Patient sessionFromJson = JsonConvert.DeserializeObject<Patient>(jsonFile);
+            return sessionFromJson;
+        }
 
-            Meetsessie sessionFromJson = JsonConvert.DeserializeObject<Meetsessie>(jsonFile);
+        public static void savePatientsJson(string path, List<Patient> patient)
+        {
+            string json = JsonConvert.SerializeObject(patient);
+            File.WriteAllText(path, json);
+        }
+
+        public static List<Patient> loadPatientsJson(string path)
+        {
+            string jsonFile = File.ReadAllText(path);
+            List<Patient> sessionFromJson = JsonConvert.DeserializeObject<List<Patient>>(jsonFile);
             return sessionFromJson;
         }
     }

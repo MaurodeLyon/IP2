@@ -93,8 +93,7 @@ namespace IP2
                 Action sec = () => patientScherm.Seconds.Value = Convert.ToDecimal(amount_of_seconds % 60);
                 patientScherm.WaarschuwingLabel.Invoke(sec);
             }
-
-            stopTraject();
+            new Thread(stopTraject).Start();
         }
 
         private void addMeasurment(string[] data)
@@ -107,11 +106,16 @@ namespace IP2
                 Action max = () => patientScherm.WaarschuwingLabel.Text = "U rijdt te hard.";
                 patientScherm.WaarschuwingLabel.Invoke(max);
             }
-            if (rpm < minToeren)
+            else if (rpm < minToeren)
             {
                 //geef aan dat hij te langzaam fietst
                 Action min = () => patientScherm.WaarschuwingLabel.Text = "U rijdt te langzaam.";
                 patientScherm.WaarschuwingLabel.Invoke(min);
+            }
+            else
+            {
+                Action gut = () => patientScherm.WaarschuwingLabel.Text = "U snelheid is correct.";
+                patientScherm.WaarschuwingLabel.Invoke(gut);
             }
 
             Action pow = () => patientScherm.actualPowerBox.Text = data[7];
@@ -122,10 +126,14 @@ namespace IP2
 
         public void stopTraject()
         {
-            traject.Abort();
+            patientScherm.Minutes.Enabled = true;
+            patientScherm.Seconds.Enabled = true;
+            patientScherm.minToeren.Enabled = true;
+            patientScherm.maxToeren.Enabled = true;
+            patientScherm.MaxPower.Enabled = true;
             bicycle.sendData(ConnectionToBicycle.RESET);
+            traject.Abort();
             //save logfile to server
-            NetworkCommunication.WriteMessage(tcpClient, "1");
             NetworkCommunication.SendPatient(tcpClient, patient);
         }
     }

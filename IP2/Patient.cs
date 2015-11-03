@@ -34,18 +34,13 @@ namespace IP2
             dataHandler.maxToeren = Convert.ToInt32(maxToeren.Value);
             dataHandler.maxPower = Convert.ToInt32(MaxPower.Value);
             dataHandler.naam = NaamBox.Text;
-            dataHandler.leeftijd = Convert.ToInt32(gewichtBox.Text);
-            dataHandler.gewicht = Convert.ToInt32(leeftijdBox.Text);
+            dataHandler.leeftijd = Convert.ToInt32(leeftijdBox.Text);
+            dataHandler.gewicht = Convert.ToInt32(gewichtBox.Text);
             dataHandler.startMeasurment();
         }
 
         private void Stop_button_Click(object sender, EventArgs e)
         {
-            Minutes.Enabled = true;
-            Seconds.Enabled = true;
-            minToeren.Enabled = true;
-            maxToeren.Enabled = true;
-            MaxPower.Enabled = true;
             dataHandler.stopTraject();
         }
 
