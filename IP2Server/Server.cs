@@ -14,61 +14,53 @@ namespace IP2Server
     {
         private static int Port = 8800;
         private static TcpListener serverListener;
-        private static List<Object> measurements;
+        private List<Patient> patients;
 
         public Server()
         {
+            patients = new List<Patient>(); // to be replaced with list loaded from patient document
             serverListener = new TcpListener(IPAddress.Any, Port);
-            measurements = new List<Object>();
-            GetConnections();
+            serverListener.Start();
+            Console.WriteLine("Server gestart, wachten op verbindingen...\r\n");
+            while (true)
+            {
+                Console.WriteLine("Wachten op verbindingen...\r\n");
+                TcpClient tcp = serverListener.AcceptTcpClient();
+                new Thread(Handler).Start(tcp);
+                Console.WriteLine("Nieuwe verbinding geaccepteerd.\r\n");
+            }
         }
 
-        private void GetConnections()
+        private void Handler(object obj)
         {
-            try
+            TcpClient client = obj as TcpClient;
+            while (true)
             {
-                Thread getConnections = new Thread(() =>
+                string data = NetworkCommunication.ReadMessage(client);
+                Console.WriteLine($"received: {data}");
+                switch (data)
                 {
-                    serverListener.Start();
-                    Console.WriteLine("Server gestart, wachten op verbindingen...\r\n");
-
-                    while(true)
-                    {
-                        new Thread(Handler).Start(serverListener.AcceptTcpClient());
-                        Console.WriteLine("Nieuwe verbinding geaccepteerd."
-                            + "\r\n");
-                    }
-                });
-
-                getConnections.Start();
-            }
-            catch(Exception e)
-            {
-                Console.WriteLine(e);
+                    case "1":
+                        Patient P = NetworkCommunication.receivePatient(client);
+                        //AddPatientSession(P);
+                        break;
+                    case "2":
+                        NetworkCommunication.SendPatients(client, patients);
+                        break;
+                }
             }
         }
 
-        private void Handler(Object clientObject)
+        private void AddPatientSession(object _patient)
         {
-            TcpClient client = clientObject as TcpClient;
-
-            string data = NetworkCommunication.ReadMessage(client);
-            string[] protocol = data.Split('|');
-            
-            switch(protocol[0])
+            Patient receivedPatient = _patient as Patient;
+            foreach (Patient patient in patients)
             {
-                case "1":
-                    SaveMeasurement(protocol[1]);
-                    break;
-                case "2":
-                    NetworkCommunication.SendMeasurements(client, measurements);
-                    break;
-            }
-        }
+                if (patient.naam == receivedPatient.naam)
+                    patient.meetsessies.Add(receivedPatient.meetsessies[0]);
+                else patients.Add(receivedPatient);
 
-        private void SaveMeasurement(Object measurement)
-        {
-            measurements.Add(measurement);
+            }
         }
     }
 }

@@ -1,0 +1,21 @@
+C:\Users\mauro\Documents\GitHub\IP2\IP2Reader\bin\Debug\IP2Reader.exe.config
+C:\Users\mauro\Documents\GitHub\IP2\IP2Reader\bin\Debug\IP2Reader.exe
+C:\Users\mauro\Documents\GitHub\IP2\IP2Reader\bin\Debug\IP2Reader.pdb
+C:\Users\mauro\Documents\GitHub\IP2\IP2Reader\obj\Debug\IP2Reader.Properties.Resources.resources
+C:\Users\mauro\Documents\GitHub\IP2\IP2Reader\obj\Debug\IP2Reader.csproj.GenerateResource.Cache
+C:\Users\mauro\Documents\GitHub\IP2\IP2Reader\obj\Debug\IP2Reader.exe
+C:\Users\mauro\Documents\GitHub\IP2\IP2Reader\obj\Debug\IP2Reader.pdb
+C:\Users\mauro\Documents\GitHub\IP2\IP2Reader\obj\Debug\IP2Reader.csprojResolveAssemblyReference.cache
+C:\Users\Tom Remeeus\Documents\GitHub\IP2\IP2Reader\bin\Debug\IP2Reader.exe.config
+C:\Users\Tom Remeeus\Documents\GitHub\IP2\IP2Reader\bin\Debug\IP2Reader.exe
+C:\Users\Tom Remeeus\Documents\GitHub\IP2\IP2Reader\bin\Debug\IP2Reader.pdb
+C:\Users\Tom Remeeus\Documents\GitHub\IP2\IP2Reader\obj\Debug\IP2Reader.Properties.Resources.resources
+C:\Users\Tom Remeeus\Documents\GitHub\IP2\IP2Reader\obj\Debug\IP2Reader.csproj.GenerateResource.Cache
+C:\Users\Tom Remeeus\Documents\GitHub\IP2\IP2Reader\obj\Debug\IP2Reader.exe
+C:\Users\Tom Remeeus\Documents\GitHub\IP2\IP2Reader\obj\Debug\IP2Reader.pdb
+C:\Users\Tom Remeeus\Documents\GitHub\IP2\IP2Reader\bin\Debug\Library.dll
+C:\Users\Tom Remeeus\Documents\GitHub\IP2\IP2Reader\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Tom Remeeus\Documents\GitHub\IP2\IP2Reader\bin\Debug\Library.pdb
+C:\Users\Tom Remeeus\Documents\GitHub\IP2\IP2Reader\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Tom Remeeus\Documents\GitHub\IP2\IP2Reader\obj\Debug\IP2Reader.csprojResolveAssemblyReference.cache
+C:\Users\Tom Remeeus\Documents\GitHub\IP2\IP2Reader\obj\Debug\IP2Reader.Doctor.resources

@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Library;
+using System.Net.Sockets;
 
 namespace IP2
 {
@@ -21,29 +22,36 @@ namespace IP2
         public int maxToeren;
         public int maxPower;
 
-
+        //bicycle
         private ConnectionToBicycle bicycle;
         private readonly string comport = "COM5";
+
+        //Server
+        private TcpClient tcpClient;
+        private static string serverIP = "127.0.0.1";
+        private static int serverPort = 8800;
 
         public DataHandler()
         {
             bicycle = new ConnectionToBicycle();
             bicycle.initComm(comport);
             ConnectionToBicycle.IncomingDataEvent += addMeasurment;
-            //startServerConnection();
+            new Thread(startServerConnection).Start();//startServerConnection();
         }
 
         private void startServerConnection()
         {
-            throw new NotImplementedException();
+            do { tcpClient = new TcpClient(serverIP, serverPort); }
+            while (!tcpClient.Connected);
         }
-
+        private Thread traject;
         internal void startMeasurment()
         {
             bicycle.sendData("RS");
             bicycle.sendData("CM");
             bicycle.sendData("PT " + minutes + ":" + seconds);
-            new Thread(startTraject).Start();
+            traject = new Thread(startTraject);
+            traject.Start();
         }
 
         private Patient patient;
@@ -114,9 +122,11 @@ namespace IP2
 
         public void stopTraject()
         {
+            traject.Abort();
             bicycle.sendData(ConnectionToBicycle.RESET);
             //save logfile to server
-            throw new NotImplementedException();
+            NetworkCommunication.WriteMessage(tcpClient, "1");
+            NetworkCommunication.SendPatient(tcpClient, patient);
         }
     }
 }
