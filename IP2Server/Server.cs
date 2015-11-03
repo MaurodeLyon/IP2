@@ -26,10 +26,12 @@ namespace IP2Server
             configFile = Path.Combine(path, "patients.json");
             try
             {
+                Console.WriteLine("loading session");
                 patients = JsonCommunication.loadPatientsJson(configFile);
             }
             catch (Exception)
             {
+                Console.WriteLine("no sessions to load");
                 patients = new List<Patient>(); // to be replaced with list loaded from patient document
             }
 
