@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net;
 using System.Threading;
+using Library;
 
 namespace IP2Server
 {
@@ -13,10 +14,12 @@ namespace IP2Server
     {
         private static int Port = 8800;
         private static TcpListener serverListener;
+        private static List<Object> measurements;
 
         public Server()
         {
             serverListener = new TcpListener(IPAddress.Any, Port);
+            measurements = new List<Object>();
             GetConnections();
         }
 
@@ -31,7 +34,7 @@ namespace IP2Server
 
                     while(true)
                     {
-                        new Client(serverListener.AcceptTcpClient());
+                        new Thread(Handler).Start(serverListener.AcceptTcpClient());
                         Console.WriteLine("Nieuwe verbinding geaccepteerd."
                             + "\r\n");
                     }
@@ -43,6 +46,34 @@ namespace IP2Server
             {
                 Console.WriteLine(e);
             }
+        }
+
+        private void Handler(Object clientObject)
+        {
+            TcpClient client = clientObject as TcpClient;
+
+            string data = NetworkCommunication.ReadMessage(client);
+            string[] protocol = data.Split('|');
+            
+            switch(protocol[0])
+            {
+                case "1":
+                    SaveMeasurement(protocol[1]);
+                    break;
+                case "2":
+                    SendMeasurements();
+                    break;
+            }
+        }
+
+        private void SaveMeasurement(Object measurement)
+        {
+            measurements.Add(measurement);
+        }
+
+        private void SendMeasurements()
+        {
+            //
         }
     }
 }
