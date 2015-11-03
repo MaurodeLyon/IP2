@@ -15,11 +15,11 @@ namespace IP2
         public string naam;
         public int leeftijd;
         public int gewicht;
-        public decimal minutes;
-        public decimal seconds;
-        public decimal minToeren;
-        public decimal maxToeren;
-        public decimal maxPower;
+        public int minutes;
+        public int seconds;
+        public int minToeren;
+        public int maxToeren;
+        public int maxPower;
 
 
         private ConnectionToBicycle bicycle;
@@ -40,6 +40,9 @@ namespace IP2
 
         internal void startMeasurment()
         {
+            bicycle.sendData("RS");
+            bicycle.sendData("CM");
+            bicycle.sendData("PT " + minutes + ":" + seconds);
             new Thread(startTraject).Start();
         }
 
@@ -50,27 +53,39 @@ namespace IP2
             patient = new Patient(naam);
             meetsessie = new Meetsessie(leeftijd, gewicht);
             patient.meetsessies.Add(meetsessie);
-            int amount_of_seconds = (int)((minutes * 60) + seconds);
+            int amount_of_seconds = (minutes * 60) + seconds;
+            int sec_per_stap = amount_of_seconds / 10;
+            int amount_per_stap = (maxPower - 25) / 10;
 
-            int toAdd = (int)maxPower - 25;
-            int seconds_until_next_power_add = amount_of_seconds / toAdd;
-            int tick = seconds_until_next_power_add;
             int currentPower = 25;
+            int tick = sec_per_stap;
+            bicycle.sendData("CM");
+            bicycle.sendData("PW " + currentPower);
+            bicycle.sendData("CM");
+            bicycle.sendData("PT " + Math.Floor(Convert.ToDecimal(amount_of_seconds / 60)) + ":" + Convert.ToDecimal(amount_of_seconds % 60));
 
             while (amount_of_seconds != 0)
             {
                 bicycle.sendData(ConnectionToBicycle.STATUS);
                 if (tick == 0)
                 {
-                    tick = seconds_until_next_power_add;
+                    tick = sec_per_stap;
+                    currentPower += amount_per_stap;
                     bicycle.sendData("CM");
                     bicycle.sendData("PW " + currentPower);
-                    currentPower++;
+                    bicycle.sendData("CM");
+                    bicycle.sendData("PT " + Math.Floor(Convert.ToDecimal(amount_of_seconds / 60)) + ":" + Convert.ToDecimal(amount_of_seconds % 60));
+
                 }
                 else tick--;
                 Thread.Sleep(1000);
                 amount_of_seconds--;
+                Action min = () => patientScherm.Minutes.Value = Math.Floor(Convert.ToDecimal(amount_of_seconds / 60));
+                patientScherm.WaarschuwingLabel.Invoke(min);
+                Action sec = () => patientScherm.Seconds.Value = Convert.ToDecimal(amount_of_seconds % 60);
+                patientScherm.WaarschuwingLabel.Invoke(sec);
             }
+
             stopTraject();
         }
 
@@ -81,19 +96,23 @@ namespace IP2
             if (rpm > maxToeren)
             {
                 //geef aan dat hij te hard fietst
-                Action act = () => patientScherm.WaarschuwingLabel.Text = "U rijdt te hard.";
-                patientScherm.WaarschuwingLabel.Invoke(act);
+                Action max = () => patientScherm.WaarschuwingLabel.Text = "U rijdt te hard.";
+                patientScherm.WaarschuwingLabel.Invoke(max);
             }
             if (rpm < minToeren)
             {
                 //geef aan dat hij te langzaam fietst
-                Action act = () => patientScherm.WaarschuwingLabel.Text = "U rijdt te langzaam.";
-                patientScherm.WaarschuwingLabel.Invoke(act);
+                Action min = () => patientScherm.WaarschuwingLabel.Text = "U rijdt te langzaam.";
+                patientScherm.WaarschuwingLabel.Invoke(min);
             }
+
+            Action pow = () => patientScherm.actualPowerBox.Text = data[7];
+            patientScherm.actualPowerBox.Invoke(pow);
+
             meetsessie.addMeasurment(new Measurement(data));
         }
 
-        private void stopTraject()
+        public void stopTraject()
         {
             bicycle.sendData(ConnectionToBicycle.RESET);
             //save logfile to server

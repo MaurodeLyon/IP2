@@ -50,6 +50,8 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.WaarschuwingLabel = new System.Windows.Forms.Label();
+            this.actualPowerBox = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.minToeren)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Seconds)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.maxToeren)).BeginInit();
@@ -282,6 +284,7 @@
             // 
             // WaarschuwingLabel
             // 
+            this.WaarschuwingLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.WaarschuwingLabel.AutoSize = true;
             this.WaarschuwingLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.WaarschuwingLabel.Location = new System.Drawing.Point(24, 104);
@@ -290,12 +293,31 @@
             this.WaarschuwingLabel.TabIndex = 24;
             this.WaarschuwingLabel.Text = ">Hier zullen waarschuwingen komen te staan<";
             // 
+            // actualPowerBox
+            // 
+            this.actualPowerBox.Enabled = false;
+            this.actualPowerBox.Location = new System.Drawing.Point(241, 178);
+            this.actualPowerBox.Name = "actualPowerBox";
+            this.actualPowerBox.Size = new System.Drawing.Size(51, 20);
+            this.actualPowerBox.TabIndex = 25;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(298, 181);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(87, 13);
+            this.label5.TabIndex = 26;
+            this.label5.Text = "Huidig vermogen";
+            // 
             // Patient_Applicatie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(418, 240);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.actualPowerBox);
             this.Controls.Add(this.WaarschuwingLabel);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
@@ -354,6 +376,8 @@
         public System.Windows.Forms.TextBox gewichtBox;
         public System.Windows.Forms.TextBox leeftijdBox;
         public System.Windows.Forms.Label WaarschuwingLabel;
+        private System.Windows.Forms.Label label5;
+        public System.Windows.Forms.TextBox actualPowerBox;
     }
 }
 
