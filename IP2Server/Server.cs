@@ -13,12 +13,10 @@ namespace IP2Server
     {
         private static int Port = 8800;
         private static TcpListener serverListener;
-        private List<TcpClient> users;
 
         public Server()
         {
             serverListener = new TcpListener(IPAddress.Any, Port);
-            users = new List<TcpClient>();
             GetConnections();
         }
 
@@ -33,9 +31,8 @@ namespace IP2Server
 
                     while(true)
                     {
-                        users.Add(serverListener.AcceptTcpClient());
-                        Console.WriteLine("Nieuwe verbinding geaccepteerd. \n"
-                            + "Huidig aantal verbindingen: " + users.Count()
+                        new Client(serverListener.AcceptTcpClient());
+                        Console.WriteLine("Nieuwe verbinding geaccepteerd."
                             + "\r\n");
                     }
                 });
