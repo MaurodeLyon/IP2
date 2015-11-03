@@ -24,3 +24,16 @@ C:\Users\mauro\Documents\GitHub\Technische Informatica\jaar 2\IP2\IP2\obj\Debug\
 C:\Users\mauro\Documents\GitHub\Technische Informatica\jaar 2\IP2\IP2\obj\Debug\IP2.Patient_Applicatie.resources
 C:\Users\mauro\Documents\GitHub\Technische Informatica\jaar 2\IP2\IP2\obj\Debug\IP2.Properties.Resources.resources
 C:\Users\mauro\Documents\GitHub\Technische Informatica\jaar 2\IP2\IP2\obj\Debug\IP2Client.csproj.GenerateResource.Cache
+C:\Users\Tom Remeeus\Documents\GitHub\IP2\IP2\bin\Debug\IP2.exe.config
+C:\Users\Tom Remeeus\Documents\GitHub\IP2\IP2\obj\Debug\IP2.exe
+C:\Users\Tom Remeeus\Documents\GitHub\IP2\IP2\obj\Debug\IP2.pdb
+C:\Users\Tom Remeeus\Documents\GitHub\IP2\IP2\bin\Debug\IP2.exe
+C:\Users\Tom Remeeus\Documents\GitHub\IP2\IP2\bin\Debug\IP2.pdb
+C:\Users\Tom Remeeus\Documents\GitHub\IP2\IP2\bin\Debug\Library.dll
+C:\Users\Tom Remeeus\Documents\GitHub\IP2\IP2\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Tom Remeeus\Documents\GitHub\IP2\IP2\bin\Debug\Library.pdb
+C:\Users\Tom Remeeus\Documents\GitHub\IP2\IP2\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Tom Remeeus\Documents\GitHub\IP2\IP2\obj\Debug\IP2Client.csprojResolveAssemblyReference.cache
+C:\Users\Tom Remeeus\Documents\GitHub\IP2\IP2\obj\Debug\IP2.Patient_Applicatie.resources
+C:\Users\Tom Remeeus\Documents\GitHub\IP2\IP2\obj\Debug\IP2.Properties.Resources.resources
+C:\Users\Tom Remeeus\Documents\GitHub\IP2\IP2\obj\Debug\IP2Client.csproj.GenerateResource.Cache
