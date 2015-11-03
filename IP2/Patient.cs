@@ -28,14 +28,14 @@ namespace IP2
             minToeren.Enabled = false;
             maxToeren.Enabled = false;
             MaxPower.Enabled = false;
-            dataHandler.minutes = Minutes.Value;
-            dataHandler.seconds = Seconds.Value;
-            dataHandler.minToeren = minToeren.Value;
-            dataHandler.maxToeren = maxToeren.Value;
-            dataHandler.maxPower = MaxPower.Value;
+            dataHandler.minutes = Convert.ToInt32(Minutes.Value);
+            dataHandler.seconds = Convert.ToInt32(Seconds.Value);
+            dataHandler.minToeren = Convert.ToInt32(minToeren.Value);
+            dataHandler.maxToeren = Convert.ToInt32(maxToeren.Value);
+            dataHandler.maxPower = Convert.ToInt32(MaxPower.Value);
             dataHandler.naam = NaamBox.Text;
-            dataHandler.leeftijd = Int32.Parse(gewichtBox.Text);
-            dataHandler.gewicht = Int32.Parse(leeftijdBox.Text);
+            dataHandler.leeftijd = Convert.ToInt32(gewichtBox.Text);
+            dataHandler.gewicht = Convert.ToInt32(leeftijdBox.Text);
             dataHandler.startMeasurment();
         }
 
@@ -46,8 +46,7 @@ namespace IP2
             minToeren.Enabled = true;
             maxToeren.Enabled = true;
             MaxPower.Enabled = true;
-            //save to server
-            throw new NotImplementedException();
+            dataHandler.stopTraject();
         }
 
         private void label7_Click(object sender, EventArgs e)

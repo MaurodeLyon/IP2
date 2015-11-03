@@ -136,7 +136,6 @@ namespace Simulator
         }
         private void SendStatus()
         {
-            Console.WriteLine(Heartbeat.ToString() + "\t" + rpm + "\t" + speed * 10 + "\t" + distance + "\t" + Power.ToString() + "\t600\t" + getTimeElapsed() + "\t200\r");
             SendData(Heartbeat.ToString() + "\t" + rpm + "\t" + speed * 10 + "\t" + distance + "\t" + Power.ToString() + "\t600\t" + getTimeElapsed() + "\t200\r");
         }
 
