@@ -14,6 +14,8 @@ namespace IP2
         [STAThread]
         static void Main()
         {
+            ConnectionToServer connection = new ConnectionToServer();
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Patient_Applicatie());

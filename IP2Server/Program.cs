@@ -10,6 +10,7 @@ namespace IP2Server
     {
         static void Main(string[] args)
         {
+            new Server();
         }
     }
 }
