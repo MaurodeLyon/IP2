@@ -11,6 +11,7 @@ namespace IP2
 {
     class DataHandler
     {
+        public Patient_Applicatie patientScherm;
         public string naam;
         public int leeftijd;
         public int gewicht;
@@ -19,6 +20,7 @@ namespace IP2
         public decimal minToeren;
         public decimal maxToeren;
         public decimal maxPower;
+
 
         private ConnectionToBicycle bicycle;
         private readonly string comport = "COM5";
@@ -75,13 +77,18 @@ namespace IP2
         private void addMeasurment(string[] data)
         {
             //check toerental
-            if (data[1] > maxToeren)
+            int rpm = Int32.Parse(data[1]);
+            if (rpm > maxToeren)
             {
                 //geef aan dat hij te hard fietst
+                Action act = () => patientScherm.WaarschuwingLabel.Text = "U rijdt te hard.";
+                patientScherm.WaarschuwingLabel.Invoke(act);
             }
-            if (data[1] < minToeren)
+            if (rpm < minToeren)
             {
                 //geef aan dat hij te langzaam fietst
+                Action act = () => patientScherm.WaarschuwingLabel.Text = "U rijdt te langzaam.";
+                patientScherm.WaarschuwingLabel.Invoke(act);
             }
             meetsessie.addMeasurment(new Measurement(data));
         }

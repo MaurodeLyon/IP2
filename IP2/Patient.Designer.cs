@@ -284,7 +284,7 @@
             // 
             this.WaarschuwingLabel.AutoSize = true;
             this.WaarschuwingLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.WaarschuwingLabel.Location = new System.Drawing.Point(12, 104);
+            this.WaarschuwingLabel.Location = new System.Drawing.Point(24, 104);
             this.WaarschuwingLabel.Name = "WaarschuwingLabel";
             this.WaarschuwingLabel.Size = new System.Drawing.Size(380, 20);
             this.WaarschuwingLabel.TabIndex = 24;
@@ -353,7 +353,7 @@
         public System.Windows.Forms.TextBox NaamBox;
         public System.Windows.Forms.TextBox gewichtBox;
         public System.Windows.Forms.TextBox leeftijdBox;
-        private System.Windows.Forms.Label WaarschuwingLabel;
+        public System.Windows.Forms.Label WaarschuwingLabel;
     }
 }
 

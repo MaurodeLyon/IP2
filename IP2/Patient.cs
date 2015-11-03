@@ -17,6 +17,7 @@ namespace IP2
         {
             InitializeComponent();
             dataHandler = new DataHandler();
+            dataHandler.patientScherm = this;
         }
 
         private void Start_button_Click(object sender, EventArgs e)
