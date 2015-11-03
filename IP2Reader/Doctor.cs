@@ -23,10 +23,14 @@ namespace IP2Reader
             connect = new Connect();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void chart1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
         {
             connect.RequestData();
-            //this.chart1.Series["RPM"].Points.AddXY()
         }
     }
 }
