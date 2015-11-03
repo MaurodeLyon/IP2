@@ -93,8 +93,7 @@ namespace IP2
                 Action sec = () => patientScherm.Seconds.Value = Convert.ToDecimal(amount_of_seconds % 60);
                 patientScherm.WaarschuwingLabel.Invoke(sec);
             }
-
-            stopTraject();
+            new Thread(stopTraject).Start();
         }
 
         private void addMeasurment(string[] data)
@@ -127,8 +126,13 @@ namespace IP2
 
         public void stopTraject()
         {
-            traject.Abort();
+            patientScherm.Minutes.Enabled = true;
+            patientScherm.Seconds.Enabled = true;
+            patientScherm.minToeren.Enabled = true;
+            patientScherm.maxToeren.Enabled = true;
+            patientScherm.MaxPower.Enabled = true;
             bicycle.sendData(ConnectionToBicycle.RESET);
+            traject.Abort();
             //save logfile to server
             NetworkCommunication.SendPatient(tcpClient, patient);
         }

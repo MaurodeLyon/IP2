@@ -8,6 +8,7 @@ using System.Net;
 using System.Threading;
 using Library;
 using Newtonsoft.Json;
+using System.IO;
 
 namespace IP2Server
 {
@@ -16,10 +17,22 @@ namespace IP2Server
         private static int Port = 8800;
         private static TcpListener serverListener;
         private List<Patient> patients;
+        private string path;
+        private string configFile;
 
         public Server()
         {
-            patients = new List<Patient>(); // to be replaced with list loaded from patient document
+            path = Directory.GetCurrentDirectory();
+            configFile = Path.Combine(path, "patients.json");
+            try
+            {
+                patients = JsonCommunication.loadPatientsJson(configFile);
+            }
+            catch (Exception)
+            {
+                patients = new List<Patient>(); // to be replaced with list loaded from patient document
+            }
+
             serverListener = new TcpListener(IPAddress.Any, Port);
             serverListener.Start();
             Console.WriteLine("Server gestart, wachten op verbindingen...\r\n");
@@ -62,7 +75,7 @@ namespace IP2Server
             }
             else
             {
-                foreach (Patient patient in patients)
+                foreach (Patient patient in patients.ToList())
                 {
                     if (patient.naam == receivedPatient.naam)
                         patient.meetsessies.Add(receivedPatient.meetsessies[0]);
@@ -70,6 +83,8 @@ namespace IP2Server
 
                 }
             }
+            Console.WriteLine("Saving session to archive");
+            JsonCommunication.savePatientsJson(configFile, patients);
         }
     }
 }
