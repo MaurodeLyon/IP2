@@ -16,6 +16,7 @@ namespace IP2Server
         public Client(TcpClient client)
         {
             this.client = client;
+            incommingData();
         }
 
         private void incommingData()
@@ -33,7 +34,7 @@ namespace IP2Server
 
         private void ProtocolHandler(string data)
         {
-            //protocolshizzle
+            //schrijven
         }
     }
 }

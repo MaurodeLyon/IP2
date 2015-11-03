@@ -14,11 +14,11 @@ namespace IP2
         [STAThread]
         static void Main()
         {
-            //Application.EnableVisualStyles();
-            //Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new Patient_Applicatie());
-
             ConnectionToServer connection = new ConnectionToServer();
+
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new Patient_Applicatie());
         }
     }
 }
