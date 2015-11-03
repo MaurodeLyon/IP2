@@ -7,3 +7,10 @@ C:\Users\mauro\Documents\GitHub\IP2\IP2Server\obj\Debug\IP2Server.csprojResolveA
 C:\Users\Tom Remeeus\Documents\GitHub\IP2\IP2Server\obj\Debug\IP2Server.csprojResolveAssemblyReference.cache
 C:\Users\Tom Remeeus\Documents\GitHub\IP2\IP2Server\obj\Debug\IP2Server.exe
 C:\Users\Tom Remeeus\Documents\GitHub\IP2\IP2Server\obj\Debug\IP2Server.pdb
+C:\Users\Tom Remeeus\Documents\GitHub\IP2\IP2Server\bin\Debug\IP2Server.exe.config
+C:\Users\Tom Remeeus\Documents\GitHub\IP2\IP2Server\bin\Debug\IP2Server.exe
+C:\Users\Tom Remeeus\Documents\GitHub\IP2\IP2Server\bin\Debug\IP2Server.pdb
+C:\Users\Tom Remeeus\Documents\GitHub\IP2\IP2Server\bin\Debug\Library.dll
+C:\Users\Tom Remeeus\Documents\GitHub\IP2\IP2Server\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Tom Remeeus\Documents\GitHub\IP2\IP2Server\bin\Debug\Library.pdb
+C:\Users\Tom Remeeus\Documents\GitHub\IP2\IP2Server\bin\Debug\Newtonsoft.Json.xml

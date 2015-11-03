@@ -29,12 +29,14 @@ namespace IP2Server
                 Thread getConnections = new Thread(() =>
                 {
                     serverListener.Start();
-                    Console.WriteLine("Server gestart, wachten op verbindingen...");
+                    Console.WriteLine("Server gestart, wachten op verbindingen...\r\n");
 
                     while(true)
                     {
                         users.Add(serverListener.AcceptTcpClient());
-                        Console.WriteLine("Nieuwe verbinding geaccepteerd \r\n");
+                        Console.WriteLine("Nieuwe verbinding geaccepteerd. \n"
+                            + "Huidig aantal verbindingen: " + users.Count()
+                            + "\r\n");
                     }
                 });
 
