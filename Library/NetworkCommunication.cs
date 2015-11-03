@@ -18,6 +18,12 @@ namespace Library
             stream.Flush();
         }
 
+        public static void SendMeasurements(TcpClient client, List<Object> measurements)
+        {
+            StreamWriter stream = new StreamWriter(client.GetStream(), Encoding.Unicode);
+            stream.Write(measurements);
+        }
+
         public static string ReadMessage(TcpClient client)
         {
             StreamReader stream = new StreamReader(client.GetStream(), Encoding.Unicode);
