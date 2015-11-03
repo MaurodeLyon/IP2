@@ -33,8 +33,8 @@ namespace IP2
             dataHandler.maxToeren = maxToeren.Value;
             dataHandler.maxPower = MaxPower.Value;
             dataHandler.naam = NaamBox.Text;
-            dataHandler.leeftijd = Int32.Parse(LeeftijdBox.Text);
-            dataHandler.gewicht = Int32.Parse(gewichtBox.Text);
+            dataHandler.leeftijd = Int32.Parse(gewichtBox.Text);
+            dataHandler.gewicht = Int32.Parse(leeftijdBox.Text);
             dataHandler.startMeasurment();
         }
 

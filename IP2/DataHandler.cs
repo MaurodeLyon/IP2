@@ -74,6 +74,15 @@ namespace IP2
 
         private void addMeasurment(string[] data)
         {
+            //check toerental
+            if (data[1] > maxToeren)
+            {
+                //geef aan dat hij te hard fietst
+            }
+            if (data[1] < minToeren)
+            {
+                //geef aan dat hij te langzaam fietst
+            }
             meetsessie.addMeasurment(new Measurement(data));
         }
 
