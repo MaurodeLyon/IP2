@@ -3,3 +3,4 @@ C:\Users\mauro\Documents\GitHub\IP2\IP2Server\bin\Debug\IP2Server.exe
 C:\Users\mauro\Documents\GitHub\IP2\IP2Server\bin\Debug\IP2Server.pdb
 C:\Users\mauro\Documents\GitHub\IP2\IP2Server\obj\Debug\IP2Server.exe
 C:\Users\mauro\Documents\GitHub\IP2\IP2Server\obj\Debug\IP2Server.pdb
+C:\Users\mauro\Documents\GitHub\IP2\IP2Server\obj\Debug\IP2Server.csprojResolveAssemblyReference.cache
