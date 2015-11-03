@@ -5,4 +5,3 @@ C:\Users\mauro\Documents\GitHub\IP2\IP2Reader\obj\Debug\IP2Reader.Properties.Res
 C:\Users\mauro\Documents\GitHub\IP2\IP2Reader\obj\Debug\IP2Reader.csproj.GenerateResource.Cache
 C:\Users\mauro\Documents\GitHub\IP2\IP2Reader\obj\Debug\IP2Reader.exe
 C:\Users\mauro\Documents\GitHub\IP2\IP2Reader\obj\Debug\IP2Reader.pdb
-C:\Users\mauro\Documents\GitHub\IP2\IP2Reader\obj\Debug\IP2Reader.csprojResolveAssemblyReference.cache

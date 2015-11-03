@@ -107,11 +107,16 @@ namespace IP2
                 Action max = () => patientScherm.WaarschuwingLabel.Text = "U rijdt te hard.";
                 patientScherm.WaarschuwingLabel.Invoke(max);
             }
-            if (rpm < minToeren)
+            else if (rpm < minToeren)
             {
                 //geef aan dat hij te langzaam fietst
                 Action min = () => patientScherm.WaarschuwingLabel.Text = "U rijdt te langzaam.";
                 patientScherm.WaarschuwingLabel.Invoke(min);
+            }
+            else
+            {
+                Action gut = () => patientScherm.WaarschuwingLabel.Text = "U snelheid is correct.";
+                patientScherm.WaarschuwingLabel.Invoke(gut);
             }
 
             Action pow = () => patientScherm.actualPowerBox.Text = data[7];
@@ -125,7 +130,6 @@ namespace IP2
             traject.Abort();
             bicycle.sendData(ConnectionToBicycle.RESET);
             //save logfile to server
-            NetworkCommunication.WriteMessage(tcpClient, "1");
             NetworkCommunication.SendPatient(tcpClient, patient);
         }
     }
