@@ -41,16 +41,17 @@ namespace IP2
 
         private void startServerConnection()
         {
-            do { tcpClient = new TcpClient("127.0.0.1", 1338); }
+            do { tcpClient = new TcpClient(serverIP, serverPort); }
             while (!tcpClient.Connected);
         }
-
+        private Thread traject;
         internal void startMeasurment()
         {
             bicycle.sendData("RS");
             bicycle.sendData("CM");
             bicycle.sendData("PT " + minutes + ":" + seconds);
-            new Thread(startTraject).Start();
+            traject = new Thread(startTraject);
+            traject.Start();
         }
 
         private Patient patient;
@@ -121,8 +122,10 @@ namespace IP2
 
         public void stopTraject()
         {
+            traject.Abort();
             bicycle.sendData(ConnectionToBicycle.RESET);
             //save logfile to server
+            NetworkCommunication.WriteMessage(tcpClient, "1");
             NetworkCommunication.SendPatient(tcpClient, patient);
         }
     }
