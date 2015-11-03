@@ -11,3 +11,4 @@ C:\Users\mauro\Documents\GitHub\Technische Informatica\jaar 2\IP2\Library\bin\De
 C:\Users\mauro\Documents\GitHub\Technische Informatica\jaar 2\IP2\Library\obj\Debug\Library.csprojResolveAssemblyReference.cache
 C:\Users\mauro\Documents\GitHub\Technische Informatica\jaar 2\IP2\Library\obj\Debug\Library.dll
 C:\Users\mauro\Documents\GitHub\Technische Informatica\jaar 2\IP2\Library\obj\Debug\Library.pdb
+C:\Users\mauro\Documents\GitHub\IP2\Library\obj\Debug\Library.csprojResolveAssemblyReference.cache

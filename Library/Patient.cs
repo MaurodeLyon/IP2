@@ -7,33 +7,35 @@ using System.Threading.Tasks;
 namespace Library
 {
     [Serializable]
-    class Patient
+    public class Patient
     {
         public string naam;
-        public int leeftijd;
-        public int gewicht;
         public List<Meetsessie> meetsessies;
+        //gewicht en leeftijd verplaatst naar meetsessie, omdat dat over periodes kan veranderen
 
         public Patient()
         {
             meetsessies = new List<Meetsessie>();
         }
 
-        public Patient(string naam, int leeftijd, int gewicht)
+        public Patient(string naam)
         {
             this.naam = naam;
-            this.leeftijd = leeftijd;
-            this.gewicht = gewicht;
             meetsessies = new List<Meetsessie>();
         }
     }
     [Serializable]
-    class Meetsessie
+    public class Meetsessie
     {
         public DateTime datum;
+        public int leeftijd;
+        public int gewicht;
+
         public List<Measurement> session;
-        public Meetsessie()
+        public Meetsessie(int leeftijd, int gewicht)
         {
+            this.leeftijd = leeftijd;
+            this.gewicht = gewicht;
             datum = DateTime.Today;
             session = new List<Measurement>();
         }
@@ -45,7 +47,7 @@ namespace Library
     }
 
     [Serializable]
-    class Measurement
+    public class Measurement
     {
         public int pulse { get; }
         public int rpm { get; }

@@ -17,13 +17,7 @@ namespace IP2
         {
             InitializeComponent();
             dataHandler = new DataHandler();
-        }
-
-        private void Verbind_Click(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-            //stuur gegevens van patient naar server en verbind de aankomende logfile met de correcte patient
-            //of maak een nieuwe patient aan waar de logfile opgeslagen wordt
+            dataHandler.patientScherm = this;
         }
 
         private void Start_button_Click(object sender, EventArgs e)
@@ -39,6 +33,9 @@ namespace IP2
             dataHandler.minToeren = minToeren.Value;
             dataHandler.maxToeren = maxToeren.Value;
             dataHandler.maxPower = MaxPower.Value;
+            dataHandler.naam = NaamBox.Text;
+            dataHandler.leeftijd = Int32.Parse(gewichtBox.Text);
+            dataHandler.gewicht = Int32.Parse(leeftijdBox.Text);
             dataHandler.startMeasurment();
         }
 
@@ -53,5 +50,69 @@ namespace IP2
             throw new NotImplementedException();
         }
 
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ToerentalLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Minutes_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MaxPower_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void maxToeren_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Seconds_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void minToeren_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

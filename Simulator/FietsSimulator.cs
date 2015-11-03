@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.IO.Ports;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Timers;
 
@@ -15,7 +16,7 @@ namespace Simulator
         private Stopwatch stopwatch;
         private long maxtime;
 
-        private int power, heartbeat, rpm, speed, distance, energy;
+        private int power, rpm, speed, distance, energy;
         public int Power
         {
             get { return power; }
@@ -54,6 +55,7 @@ namespace Simulator
             aTimer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
             aTimer.Interval = 1000;
             aTimer.Enabled = true;
+
         }
 
         private void ReceiveData(object sender, SerialDataReceivedEventArgs e)
@@ -134,6 +136,7 @@ namespace Simulator
         }
         private void SendStatus()
         {
+            Console.WriteLine(Heartbeat.ToString() + "\t" + rpm + "\t" + speed * 10 + "\t" + distance + "\t" + Power.ToString() + "\t600\t" + getTimeElapsed() + "\t200\r");
             SendData(Heartbeat.ToString() + "\t" + rpm + "\t" + speed * 10 + "\t" + distance + "\t" + Power.ToString() + "\t600\t" + getTimeElapsed() + "\t200\r");
         }
 
