@@ -355,7 +355,6 @@
         #endregion
 
         private System.Windows.Forms.Button Start_button;
-        private System.Windows.Forms.Button Stop_button;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -378,6 +377,7 @@
         public System.Windows.Forms.Label WaarschuwingLabel;
         private System.Windows.Forms.Label label5;
         public System.Windows.Forms.TextBox actualPowerBox;
+        public System.Windows.Forms.Button Stop_button;
     }
 }
 

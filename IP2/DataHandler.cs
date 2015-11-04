@@ -93,6 +93,8 @@ namespace IP2
                 Action sec = () => patientScherm.Seconds.Value = Convert.ToDecimal(amount_of_seconds % 60);
                 patientScherm.WaarschuwingLabel.Invoke(sec);
             }
+            Action pre = () => patientScherm.Stop_button.PerformClick();
+            patientScherm.WaarschuwingLabel.Invoke(pre);
         }
 
         private void addMeasurment(string[] data)
