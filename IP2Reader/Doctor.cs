@@ -92,7 +92,7 @@ namespace IP2Reader
                 //fill power
                 foreach (Measurement m in selected_session.session)
                     if (m.time > eindPeriode && m.time < beginPeriode)
-                        powerPoints.Add(new DataPoint(m.time, m.pulse));
+                        powerPoints.Add(new DataPoint(m.time, m.actualPower));
 
                 powerChart.Series[0].Points.Clear();
                 foreach (DataPoint p in powerPoints)
@@ -102,7 +102,7 @@ namespace IP2Reader
                 //fill speed
                 foreach (Measurement m in selected_session.session)
                     if (m.time > eindPeriode && m.time < beginPeriode)
-                        speedPoints.Add(new DataPoint(m.time, m.pulse));
+                        speedPoints.Add(new DataPoint(m.time, m.speed));
 
                 speedChart.Series[0].Points.Clear();
                 foreach (DataPoint p in speedPoints)

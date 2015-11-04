@@ -24,7 +24,7 @@ namespace IP2
 
         //bicycle
         private ConnectionToBicycle bicycle;
-        private readonly string comport = "COM7";
+        private readonly string comport = "COM3";
 
         //Server
         private TcpClient tcpClient;
@@ -49,7 +49,7 @@ namespace IP2
         {
             bicycle.sendData("RS");
             bicycle.sendData("CM");
-            bicycle.sendData("PT " + minutes + ":" + seconds);
+            bicycle.sendData("PT" + minutes + "" + seconds);
             traject = new Thread(startTraject);
             traject.Start();
         }
@@ -67,10 +67,17 @@ namespace IP2
 
             int currentPower = 25;
             int tick = sec_per_stap;
+            bicycle.sendData("RS");
+            Thread.Sleep(1000);
             bicycle.sendData("CM");
-            bicycle.sendData("PW " + currentPower);
+            Thread.Sleep(1000);
+            string tijdCommand = "PT" + minutes.ToString("D2") + "" + seconds.ToString("D2");
+            bicycle.sendData(tijdCommand);
+            Thread.Sleep(1000);
             bicycle.sendData("CM");
-            bicycle.sendData("PT " + Math.Floor(Convert.ToDecimal(amount_of_seconds / 60)) + ":" + Convert.ToDecimal(amount_of_seconds % 60));
+            Thread.Sleep(1000);
+            bicycle.sendData("PW" + currentPower);
+            Thread.Sleep(1000);
 
             while (amount_of_seconds != 0)
             {
@@ -80,13 +87,10 @@ namespace IP2
                     tick = sec_per_stap;
                     currentPower += amount_per_stap;
                     bicycle.sendData("CM");
-                    bicycle.sendData("PW " + currentPower);
-                    bicycle.sendData("CM");
-                    bicycle.sendData("PT " + Math.Floor(Convert.ToDecimal(amount_of_seconds / 60)) + ":" + Convert.ToDecimal(amount_of_seconds % 60));
-
                 }
                 else tick--;
                 Thread.Sleep(1000);
+                bicycle.sendData("PW" + currentPower);
                 amount_of_seconds--;
                 Action min = () => patientScherm.Minutes.Value = Math.Floor(Convert.ToDecimal(amount_of_seconds / 60));
                 patientScherm.WaarschuwingLabel.Invoke(min);
@@ -99,30 +103,37 @@ namespace IP2
 
         private void addMeasurment(string[] data)
         {
-            //check toerental
-            int rpm = Int32.Parse(data[1]);
-            if (rpm > maxToeren)
+            if (data[0] == "ACK")
             {
-                //geef aan dat hij te hard fietst
-                Action max = () => patientScherm.WaarschuwingLabel.Text = "U rijdt te hard.";
-                patientScherm.WaarschuwingLabel.Invoke(max);
-            }
-            else if (rpm < minToeren)
-            {
-                //geef aan dat hij te langzaam fietst
-                Action min = () => patientScherm.WaarschuwingLabel.Text = "U rijdt te langzaam.";
-                patientScherm.WaarschuwingLabel.Invoke(min);
+
             }
             else
             {
-                Action gut = () => patientScherm.WaarschuwingLabel.Text = "U snelheid is correct.";
-                patientScherm.WaarschuwingLabel.Invoke(gut);
+                //check toerental
+                int rpm = Int32.Parse(data[1]);
+                if (rpm > maxToeren)
+                {
+                    //geef aan dat hij te hard fietst
+                    Action max = () => patientScherm.WaarschuwingLabel.Text = "U rijdt te hard.";
+                    patientScherm.WaarschuwingLabel.Invoke(max);
+                }
+                else if (rpm < minToeren)
+                {
+                    //geef aan dat hij te langzaam fietst
+                    Action min = () => patientScherm.WaarschuwingLabel.Text = "U rijdt te langzaam.";
+                    patientScherm.WaarschuwingLabel.Invoke(min);
+                }
+                else
+                {
+                    Action gut = () => patientScherm.WaarschuwingLabel.Text = "U snelheid is correct.";
+                    patientScherm.WaarschuwingLabel.Invoke(gut);
+                }
+
+                Action pow = () => patientScherm.actualPowerBox.Text = data[7];
+                patientScherm.actualPowerBox.Invoke(pow);
+
+                meetsessie.addMeasurment(new Measurement(data));
             }
-
-            Action pow = () => patientScherm.actualPowerBox.Text = data[7];
-            patientScherm.actualPowerBox.Invoke(pow);
-
-            meetsessie.addMeasurment(new Measurement(data));
         }
 
         public void stopTraject()
