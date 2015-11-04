@@ -1,4 +1,5 @@
 ﻿using Library;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,32 +15,31 @@ namespace IP2Reader
         private TcpClient tcpClient;
         private static string serverIP = "127.0.0.1";
         private static int serverPort = 8800;
-        private List<Patient> patiens;
+        private Doctor doctor;
 
-        public Connect()
-        {
-            new Thread(StartServerConnection).Start();
-        }
 
-        private void StartServerConnection()
+        public Connect(Doctor doctor)
         {
+            this.doctor = doctor;
             do { tcpClient = new TcpClient(serverIP, serverPort); }
             while (!tcpClient.Connected);
+            RequestData();
+            new Thread(receiveUpdate).Start();
         }
 
         public void RequestData()
         {
             NetworkCommunication.WriteMessage(tcpClient, "2");
-
-            //tiens = NetworkCommunication.ReceivePatients();
         }
 
-        /*private List<Patient> RetreiveData()
+        private void receiveUpdate()
         {
-            while (tcpClient.Connected)
+            while (true)
             {
-                tcpClient.GetStream();
+                string data = NetworkCommunication.ReadMessage(tcpClient);
+                doctor.patients = JsonConvert.DeserializeObject<List<Patient>>(data);
             }
-        }*/
+        }
+
     }
 }

@@ -6,3 +6,8 @@ C:\Users\mauro\Documents\GitHub\IP2\IP2Reader\obj\Debug\IP2Reader.csproj.Generat
 C:\Users\mauro\Documents\GitHub\IP2\IP2Reader\obj\Debug\IP2Reader.exe
 C:\Users\mauro\Documents\GitHub\IP2\IP2Reader\obj\Debug\IP2Reader.pdb
 C:\Users\mauro\Documents\GitHub\IP2\IP2Reader\obj\Debug\IP2Reader.csprojResolveAssemblyReference.cache
+C:\Users\mauro\Documents\GitHub\IP2\IP2Reader\bin\Debug\Library.dll
+C:\Users\mauro\Documents\GitHub\IP2\IP2Reader\bin\Debug\Newtonsoft.Json.dll
+C:\Users\mauro\Documents\GitHub\IP2\IP2Reader\bin\Debug\Library.pdb
+C:\Users\mauro\Documents\GitHub\IP2\IP2Reader\bin\Debug\Newtonsoft.Json.xml
+C:\Users\mauro\Documents\GitHub\IP2\IP2Reader\obj\Debug\IP2Reader.Doctor.resources

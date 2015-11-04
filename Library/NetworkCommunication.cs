@@ -37,7 +37,7 @@ namespace Library
         public static void SendPatients(TcpClient client, List<Patient> patients)
         {
             string json = JsonConvert.SerializeObject(patients);
-            WriteMessage(client, "1|" + json);
+            WriteMessage(client, json);
         }
     }
 }
