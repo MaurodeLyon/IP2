@@ -103,7 +103,7 @@ namespace IP2Reader
                 //fill speed
                 foreach (Measurement m in selected_session.session)
                     if (m.time > eindPeriode && m.time < beginPeriode)
-                        speedPoints.Add(new DataPoint(m.time, m.speed));
+                        speedPoints.Add(new DataPoint(m.time, m.speed/10));
 
                 speedChart.Series[0].Points.Clear();
                 foreach (DataPoint p in speedPoints)

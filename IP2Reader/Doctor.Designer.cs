@@ -75,8 +75,10 @@
             this.pulseChart.Name = "pulseChart";
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.IsXValueIndexed = true;
             series1.Legend = "Legend1";
             series1.Name = "pulse(Bpm)";
+            series1.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
             this.pulseChart.Series.Add(series1);
             this.pulseChart.Size = new System.Drawing.Size(683, 415);
             this.pulseChart.TabIndex = 0;
@@ -162,8 +164,10 @@
             this.rpmChart.Name = "rpmChart";
             series2.ChartArea = "ChartArea1";
             series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.IsXValueIndexed = true;
             series2.Legend = "Legend1";
             series2.Name = "Toerental(Rpm)";
+            series2.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
             this.rpmChart.Series.Add(series2);
             this.rpmChart.Size = new System.Drawing.Size(683, 415);
             this.rpmChart.TabIndex = 3;
@@ -180,8 +184,10 @@
             this.powerChart.Name = "powerChart";
             series3.ChartArea = "ChartArea1";
             series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series3.IsXValueIndexed = true;
             series3.Legend = "Legend1";
             series3.Name = "zwaarte(Watt)";
+            series3.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
             this.powerChart.Series.Add(series3);
             this.powerChart.Size = new System.Drawing.Size(683, 415);
             this.powerChart.TabIndex = 4;
@@ -198,8 +204,10 @@
             this.speedChart.Name = "speedChart";
             series4.ChartArea = "ChartArea1";
             series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series4.IsXValueIndexed = true;
             series4.Legend = "Legend1";
             series4.Name = "Snelheid(Km/h)";
+            series4.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
             this.speedChart.Series.Add(series4);
             this.speedChart.Size = new System.Drawing.Size(683, 415);
             this.speedChart.TabIndex = 5;
