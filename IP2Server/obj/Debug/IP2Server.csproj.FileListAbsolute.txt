@@ -18,3 +18,13 @@ C:\Users\mauro\Documents\GitHub\IP2\IP2Server\bin\Debug\Library.dll
 C:\Users\mauro\Documents\GitHub\IP2\IP2Server\bin\Debug\Newtonsoft.Json.dll
 C:\Users\mauro\Documents\GitHub\IP2\IP2Server\bin\Debug\Library.pdb
 C:\Users\mauro\Documents\GitHub\IP2\IP2Server\bin\Debug\Newtonsoft.Json.xml
+C:\Users\mauro\Documents\GitHub\Technische Informatica\jaar 2\IP2\IP2Server\bin\Debug\IP2Server.exe.config
+C:\Users\mauro\Documents\GitHub\Technische Informatica\jaar 2\IP2\IP2Server\bin\Debug\IP2Server.exe
+C:\Users\mauro\Documents\GitHub\Technische Informatica\jaar 2\IP2\IP2Server\bin\Debug\IP2Server.pdb
+C:\Users\mauro\Documents\GitHub\Technische Informatica\jaar 2\IP2\IP2Server\bin\Debug\Library.dll
+C:\Users\mauro\Documents\GitHub\Technische Informatica\jaar 2\IP2\IP2Server\bin\Debug\Newtonsoft.Json.dll
+C:\Users\mauro\Documents\GitHub\Technische Informatica\jaar 2\IP2\IP2Server\bin\Debug\Library.pdb
+C:\Users\mauro\Documents\GitHub\Technische Informatica\jaar 2\IP2\IP2Server\bin\Debug\Newtonsoft.Json.xml
+C:\Users\mauro\Documents\GitHub\Technische Informatica\jaar 2\IP2\IP2Server\obj\Debug\IP2Server.csprojResolveAssemblyReference.cache
+C:\Users\mauro\Documents\GitHub\Technische Informatica\jaar 2\IP2\IP2Server\obj\Debug\IP2Server.exe
+C:\Users\mauro\Documents\GitHub\Technische Informatica\jaar 2\IP2\IP2Server\obj\Debug\IP2Server.pdb

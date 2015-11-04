@@ -24,7 +24,7 @@ namespace IP2
 
         //bicycle
         private ConnectionToBicycle bicycle;
-        private readonly string comport = "COM5";
+        private readonly string comport = "COM7";
 
         //Server
         private TcpClient tcpClient;

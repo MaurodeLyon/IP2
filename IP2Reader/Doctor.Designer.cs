@@ -45,17 +45,16 @@
             this.LoadButton = new System.Windows.Forms.ToolStripMenuItem();
             this.PatientBox = new System.Windows.Forms.ToolStripComboBox();
             this.MeetsessieBox = new System.Windows.Forms.ToolStripComboBox();
-            this.rpmChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.powerChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.speedChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.laadGrafiekToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.beginTijdBox = new System.Windows.Forms.ToolStripTextBox();
             this.eindTijdBox = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.rpmChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.powerChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.speedChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.gewichtBox = new System.Windows.Forms.ToolStripTextBox();
             this.leeftijdBox = new System.Windows.Forms.ToolStripTextBox();
-            this.toolStripTextBox3 = new System.Windows.Forms.ToolStripTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pulseChart)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rpmChart)).BeginInit();
@@ -70,19 +69,21 @@
             this.pulseChart.ChartAreas.Add(chartArea5);
             legend5.Name = "Legend1";
             this.pulseChart.Legends.Add(legend5);
-            this.pulseChart.Location = new System.Drawing.Point(0, 30);
+            this.pulseChart.Location = new System.Drawing.Point(0, 37);
+            this.pulseChart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pulseChart.Name = "pulseChart";
             series5.ChartArea = "ChartArea1";
             series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series5.Legend = "Legend1";
             series5.Name = "Series1";
             this.pulseChart.Series.Add(series5);
-            this.pulseChart.Size = new System.Drawing.Size(512, 337);
+            this.pulseChart.Size = new System.Drawing.Size(683, 415);
             this.pulseChart.TabIndex = 0;
             this.pulseChart.Text = "pulseChart";
             // 
             // menuStrip1
             // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.LoadButton,
             this.PatientBox,
@@ -93,28 +94,53 @@
             this.toolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1008, 27);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(1344, 32);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // LoadButton
             // 
             this.LoadButton.Name = "LoadButton";
-            this.LoadButton.Size = new System.Drawing.Size(97, 23);
+            this.LoadButton.Size = new System.Drawing.Size(120, 28);
             this.LoadButton.Text = "Laad patienten";
             this.LoadButton.Click += new System.EventHandler(this.LoadButton_Click);
             // 
             // PatientBox
             // 
             this.PatientBox.Name = "PatientBox";
-            this.PatientBox.Size = new System.Drawing.Size(121, 23);
+            this.PatientBox.Size = new System.Drawing.Size(160, 28);
             this.PatientBox.SelectedIndexChanged += new System.EventHandler(this.PatientBox_SelectedIndexChanged);
             // 
             // MeetsessieBox
             // 
             this.MeetsessieBox.Name = "MeetsessieBox";
-            this.MeetsessieBox.Size = new System.Drawing.Size(121, 23);
+            this.MeetsessieBox.Size = new System.Drawing.Size(160, 28);
             this.MeetsessieBox.SelectedIndexChanged += new System.EventHandler(this.MeetsessieBox_SelectedIndexChanged);
+            // 
+            // laadGrafiekToolStripMenuItem
+            // 
+            this.laadGrafiekToolStripMenuItem.Name = "laadGrafiekToolStripMenuItem";
+            this.laadGrafiekToolStripMenuItem.Size = new System.Drawing.Size(103, 28);
+            this.laadGrafiekToolStripMenuItem.Text = "Laad grafiek";
+            this.laadGrafiekToolStripMenuItem.Click += new System.EventHandler(this.laadGrafiekToolStripMenuItem_Click);
+            // 
+            // beginTijdBox
+            // 
+            this.beginTijdBox.Name = "beginTijdBox";
+            this.beginTijdBox.Size = new System.Drawing.Size(132, 28);
+            // 
+            // eindTijdBox
+            // 
+            this.eindTijdBox.Name = "eindTijdBox";
+            this.eindTijdBox.Size = new System.Drawing.Size(132, 28);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(165, 28);
+            this.toolStripMenuItem1.Text = "Laad gegevens tussen";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // rpmChart
             // 
@@ -122,14 +148,15 @@
             this.rpmChart.ChartAreas.Add(chartArea6);
             legend6.Name = "Legend1";
             this.rpmChart.Legends.Add(legend6);
-            this.rpmChart.Location = new System.Drawing.Point(496, 30);
+            this.rpmChart.Location = new System.Drawing.Point(661, 37);
+            this.rpmChart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rpmChart.Name = "rpmChart";
             series6.ChartArea = "ChartArea1";
             series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series6.Legend = "Legend1";
             series6.Name = "Series1";
             this.rpmChart.Series.Add(series6);
-            this.rpmChart.Size = new System.Drawing.Size(512, 337);
+            this.rpmChart.Size = new System.Drawing.Size(683, 415);
             this.rpmChart.TabIndex = 3;
             this.rpmChart.Text = "rpmChart";
             // 
@@ -139,14 +166,15 @@
             this.powerChart.ChartAreas.Add(chartArea7);
             legend7.Name = "Legend1";
             this.powerChart.Legends.Add(legend7);
-            this.powerChart.Location = new System.Drawing.Point(0, 363);
+            this.powerChart.Location = new System.Drawing.Point(0, 447);
+            this.powerChart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.powerChart.Name = "powerChart";
             series7.ChartArea = "ChartArea1";
             series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series7.Legend = "Legend1";
             series7.Name = "Series1";
             this.powerChart.Series.Add(series7);
-            this.powerChart.Size = new System.Drawing.Size(512, 337);
+            this.powerChart.Size = new System.Drawing.Size(683, 415);
             this.powerChart.TabIndex = 4;
             this.powerChart.Text = "powerChart";
             // 
@@ -156,74 +184,50 @@
             this.speedChart.ChartAreas.Add(chartArea8);
             legend8.Name = "Legend1";
             this.speedChart.Legends.Add(legend8);
-            this.speedChart.Location = new System.Drawing.Point(496, 363);
+            this.speedChart.Location = new System.Drawing.Point(661, 447);
+            this.speedChart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.speedChart.Name = "speedChart";
             series8.ChartArea = "ChartArea1";
             series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series8.Legend = "Legend1";
             series8.Name = "Series1";
             this.speedChart.Series.Add(series8);
-            this.speedChart.Size = new System.Drawing.Size(512, 337);
+            this.speedChart.Size = new System.Drawing.Size(683, 415);
             this.speedChart.TabIndex = 5;
             this.speedChart.Text = "speedChart";
-            // 
-            // laadGrafiekToolStripMenuItem
-            // 
-            this.laadGrafiekToolStripMenuItem.Name = "laadGrafiekToolStripMenuItem";
-            this.laadGrafiekToolStripMenuItem.Size = new System.Drawing.Size(83, 23);
-            this.laadGrafiekToolStripMenuItem.Text = "Laad grafiek";
-            this.laadGrafiekToolStripMenuItem.Click += new System.EventHandler(this.laadGrafiekToolStripMenuItem_Click);
-            // 
-            // beginTijdBox
-            // 
-            this.beginTijdBox.Name = "beginTijdBox";
-            this.beginTijdBox.Size = new System.Drawing.Size(100, 23);
-            // 
-            // eindTijdBox
-            // 
-            this.eindTijdBox.Name = "eindTijdBox";
-            this.eindTijdBox.Size = new System.Drawing.Size(100, 23);
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(134, 23);
-            this.toolStripMenuItem1.Text = "Laad gegevens tussen";
-            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // menuStrip2
             // 
             this.menuStrip2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.menuStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.gewichtBox,
-            this.leeftijdBox,
-            this.toolStripTextBox3});
-            this.menuStrip2.Location = new System.Drawing.Point(0, 702);
+            this.leeftijdBox});
+            this.menuStrip2.Location = new System.Drawing.Point(0, 866);
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(1008, 27);
+            this.menuStrip2.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
+            this.menuStrip2.Size = new System.Drawing.Size(1344, 31);
             this.menuStrip2.TabIndex = 6;
             this.menuStrip2.Text = "menuStrip2";
             // 
             // gewichtBox
             // 
+            this.gewichtBox.Enabled = false;
             this.gewichtBox.Name = "gewichtBox";
-            this.gewichtBox.Size = new System.Drawing.Size(100, 23);
+            this.gewichtBox.Size = new System.Drawing.Size(132, 27);
             // 
             // leeftijdBox
             // 
+            this.leeftijdBox.Enabled = false;
             this.leeftijdBox.Name = "leeftijdBox";
-            this.leeftijdBox.Size = new System.Drawing.Size(100, 23);
-            // 
-            // toolStripTextBox3
-            // 
-            this.toolStripTextBox3.Name = "toolStripTextBox3";
-            this.toolStripTextBox3.Size = new System.Drawing.Size(100, 23);
+            this.leeftijdBox.ReadOnly = true;
+            this.leeftijdBox.Size = new System.Drawing.Size(132, 27);
             // 
             // Doctor
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.ClientSize = new System.Drawing.Size(1344, 897);
             this.Controls.Add(this.speedChart);
             this.Controls.Add(this.powerChart);
             this.Controls.Add(this.rpmChart);
@@ -231,6 +235,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.menuStrip2);
             this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Doctor";
             this.Text = "IP2 Lezer";
             ((System.ComponentModel.ISupportInitialize)(this.pulseChart)).EndInit();
@@ -263,7 +268,6 @@
         private System.Windows.Forms.MenuStrip menuStrip2;
         private System.Windows.Forms.ToolStripTextBox gewichtBox;
         private System.Windows.Forms.ToolStripTextBox leeftijdBox;
-        private System.Windows.Forms.ToolStripTextBox toolStripTextBox3;
     }
 }
 
