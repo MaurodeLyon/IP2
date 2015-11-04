@@ -159,7 +159,6 @@ namespace IP2Reader
 
         private void haalNieuweGevensOpToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
             connect.RequestData();
         }
     }

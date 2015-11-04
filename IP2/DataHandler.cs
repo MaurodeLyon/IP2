@@ -76,6 +76,8 @@ namespace IP2
             Thread.Sleep(1000);
             bicycle.sendData("CM");
             Thread.Sleep(1000);
+            currentPower += amount_per_stap;
+            currentPower += amount_per_stap;
             bicycle.sendData("PW" + currentPower);
             Thread.Sleep(1000);
 
@@ -104,50 +106,41 @@ namespace IP2
         bool boo = true;
         private void addMeasurment(string[] data)
         {
-
-            if (data[0] == "ACK")
+            //check toerental
+            int rpm = Int32.Parse(data[1]);
+            if (rpm > maxToeren)
             {
-
+                //geef aan dat hij te hard fietst
+                Action max = () => patientScherm.WaarschuwingLabel.Text = "Uw rijdt te hard.";
+                patientScherm.WaarschuwingLabel.Invoke(max);
+            }
+            else if (rpm < minToeren)
+            {
+                //geef aan dat hij te langzaam fietst
+                Action min = () => patientScherm.WaarschuwingLabel.Text = "Uw rijdt te langzaam.";
+                patientScherm.WaarschuwingLabel.Invoke(min);
             }
             else
             {
-                //check toerental
-                int rpm = Int32.Parse(data[1]);
-                if (rpm > maxToeren)
-                {
-                    //geef aan dat hij te hard fietst
-                    Action max = () => patientScherm.WaarschuwingLabel.Text = "Uw rijdt te hard.";
-                    patientScherm.WaarschuwingLabel.Invoke(max);
-                }
-                else if (rpm < minToeren)
-                {
-                    //geef aan dat hij te langzaam fietst
-                    Action min = () => patientScherm.WaarschuwingLabel.Text = "Uw rijdt te langzaam.";
-                    patientScherm.WaarschuwingLabel.Invoke(min);
-                }
-                else
-                {
-                    Action gut = () => patientScherm.WaarschuwingLabel.Text = "Uw snelheid is correct.";
-                    patientScherm.WaarschuwingLabel.Invoke(gut);
-                }
+                Action gut = () => patientScherm.WaarschuwingLabel.Text = "Uw snelheid is correct.";
+                patientScherm.WaarschuwingLabel.Invoke(gut);
+            }
 
-                Action pow = () => patientScherm.actualPowerBox.Text = data[7];
-                patientScherm.actualPowerBox.Invoke(pow);
-                int time = 0;
-                string[] timeArray = data[6].Split(':');
-                time += (int.Parse(timeArray[0]) * 60);
-                time += int.Parse(timeArray[1]);
-                if (boo)
-                {
-                    prevTime = time;
-                    boo = false;
-                }
-                if (prevTime > time)
-                {
-                    meetsessie.addMeasurment(new Measurement(data));
-                    prevTime = time;
-                }
-
+            Action pow = () => patientScherm.actualPowerBox.Text = data[7];
+            patientScherm.actualPowerBox.Invoke(pow);
+            int time = 0;
+            string[] timeArray = data[6].Split(':');
+            time += (int.Parse(timeArray[0]) * 60);
+            time += int.Parse(timeArray[1]);
+            if (boo)
+            {
+                prevTime = time;
+                boo = false;
+            }
+            if (prevTime > time)
+            {
+                meetsessie.addMeasurment(new Measurement(data));
+                prevTime = time;
             }
         }
 

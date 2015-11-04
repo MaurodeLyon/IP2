@@ -22,6 +22,8 @@ namespace IP2
 
         private void Start_button_Click(object sender, EventArgs e)
         {
+            Stop_button.Enabled = true;
+            Start_button.Enabled = false; 
             //pak gegevens uit de form en start de test
             Minutes.Enabled = false;
             Seconds.Enabled = false;
@@ -41,6 +43,8 @@ namespace IP2
 
         private void Stop_button_Click(object sender, EventArgs e)
         {
+            Stop_button.Enabled = false;
+            Start_button.Enabled = true;
             Minutes.Enabled = true;
             Seconds.Enabled = true;
             minToeren.Enabled = true;
