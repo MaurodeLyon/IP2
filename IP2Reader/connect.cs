@@ -36,6 +36,7 @@ namespace IP2Reader
         {
             while (true)
             {
+               // doctor.patients = new List<Patient>();
                 string data = NetworkCommunication.ReadMessage(tcpClient);
                 doctor.patients = JsonConvert.DeserializeObject<List<Patient>>(data);
             }

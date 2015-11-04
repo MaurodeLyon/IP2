@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
@@ -47,7 +48,7 @@ namespace IP2Reader
 
                 int beginPeriode = 0, eindPeriode = 0;
                 //check if a period is entered
-                
+
                 if (beginTijdBox.Text == ""
                     || int.Parse(beginTijdBox.Text) > selected_session.session[0].time
                     || int.Parse(beginTijdBox.Text) < selected_session.session[selected_session.session.Count - 1].time
@@ -57,7 +58,7 @@ namespace IP2Reader
                     beginPeriode = selected_session.session[0].time;
                 }
                 else beginPeriode = int.Parse(beginTijdBox.Text);
-                
+
                 if (eindTijdBox.Text == ""
                     || int.Parse(eindTijdBox.Text) > selected_session.session[0].time
                     || int.Parse(eindTijdBox.Text) < selected_session.session[selected_session.session.Count - 1].time
@@ -154,6 +155,12 @@ namespace IP2Reader
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
             loadGraph();
+        }
+
+        private void haalNieuweGevensOpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            connect.RequestData();
         }
     }
 }

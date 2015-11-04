@@ -100,9 +100,11 @@ namespace IP2
             Action pre = () => patientScherm.Stop_button.PerformClick();
             patientScherm.WaarschuwingLabel.Invoke(pre);
         }
-
+        int prevTime;
+        bool boo = true;
         private void addMeasurment(string[] data)
         {
+
             if (data[0] == "ACK")
             {
 
@@ -114,25 +116,38 @@ namespace IP2
                 if (rpm > maxToeren)
                 {
                     //geef aan dat hij te hard fietst
-                    Action max = () => patientScherm.WaarschuwingLabel.Text = "U rijdt te hard.";
+                    Action max = () => patientScherm.WaarschuwingLabel.Text = "Uw rijdt te hard.";
                     patientScherm.WaarschuwingLabel.Invoke(max);
                 }
                 else if (rpm < minToeren)
                 {
                     //geef aan dat hij te langzaam fietst
-                    Action min = () => patientScherm.WaarschuwingLabel.Text = "U rijdt te langzaam.";
+                    Action min = () => patientScherm.WaarschuwingLabel.Text = "Uw rijdt te langzaam.";
                     patientScherm.WaarschuwingLabel.Invoke(min);
                 }
                 else
                 {
-                    Action gut = () => patientScherm.WaarschuwingLabel.Text = "U snelheid is correct.";
+                    Action gut = () => patientScherm.WaarschuwingLabel.Text = "Uw snelheid is correct.";
                     patientScherm.WaarschuwingLabel.Invoke(gut);
                 }
 
                 Action pow = () => patientScherm.actualPowerBox.Text = data[7];
                 patientScherm.actualPowerBox.Invoke(pow);
+                int time = 0;
+                string[] timeArray = data[6].Split(':');
+                time += (int.Parse(timeArray[0]) * 60);
+                time += int.Parse(timeArray[1]);
+                if (boo)
+                {
+                    prevTime = time;
+                    boo = false;
+                }
+                if (prevTime > time)
+                {
+                    meetsessie.addMeasurment(new Measurement(data));
+                    prevTime = time;
+                }
 
-                meetsessie.addMeasurment(new Measurement(data));
             }
         }
 

@@ -28,18 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend8 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.pulseChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.LoadButton = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,6 +49,7 @@
             this.beginTijdBox = new System.Windows.Forms.ToolStripTextBox();
             this.eindTijdBox = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.haalNieuweGevensOpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rpmChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.powerChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.speedChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -65,18 +66,18 @@
             // 
             // pulseChart
             // 
-            chartArea5.Name = "ChartArea1";
-            this.pulseChart.ChartAreas.Add(chartArea5);
-            legend5.Name = "Legend1";
-            this.pulseChart.Legends.Add(legend5);
+            chartArea1.Name = "ChartArea1";
+            this.pulseChart.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.pulseChart.Legends.Add(legend1);
             this.pulseChart.Location = new System.Drawing.Point(0, 37);
-            this.pulseChart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pulseChart.Margin = new System.Windows.Forms.Padding(4);
             this.pulseChart.Name = "pulseChart";
-            series5.ChartArea = "ChartArea1";
-            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series5.Legend = "Legend1";
-            series5.Name = "Series1";
-            this.pulseChart.Series.Add(series5);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.Legend = "Legend1";
+            series1.Name = "pulse(Bpm)";
+            this.pulseChart.Series.Add(series1);
             this.pulseChart.Size = new System.Drawing.Size(683, 415);
             this.pulseChart.TabIndex = 0;
             this.pulseChart.Text = "pulseChart";
@@ -91,7 +92,8 @@
             this.laadGrafiekToolStripMenuItem,
             this.beginTijdBox,
             this.eindTijdBox,
-            this.toolStripMenuItem1});
+            this.toolStripMenuItem1,
+            this.haalNieuweGevensOpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
@@ -142,56 +144,63 @@
             this.toolStripMenuItem1.Text = "Laad gegevens tussen";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
+            // haalNieuweGevensOpToolStripMenuItem
+            // 
+            this.haalNieuweGevensOpToolStripMenuItem.Name = "haalNieuweGevensOpToolStripMenuItem";
+            this.haalNieuweGevensOpToolStripMenuItem.Size = new System.Drawing.Size(172, 28);
+            this.haalNieuweGevensOpToolStripMenuItem.Text = "haal nieuwe gevens op";
+            this.haalNieuweGevensOpToolStripMenuItem.Click += new System.EventHandler(this.haalNieuweGevensOpToolStripMenuItem_Click);
+            // 
             // rpmChart
             // 
-            chartArea6.Name = "ChartArea1";
-            this.rpmChart.ChartAreas.Add(chartArea6);
-            legend6.Name = "Legend1";
-            this.rpmChart.Legends.Add(legend6);
+            chartArea2.Name = "ChartArea1";
+            this.rpmChart.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.rpmChart.Legends.Add(legend2);
             this.rpmChart.Location = new System.Drawing.Point(661, 37);
-            this.rpmChart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rpmChart.Margin = new System.Windows.Forms.Padding(4);
             this.rpmChart.Name = "rpmChart";
-            series6.ChartArea = "ChartArea1";
-            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series6.Legend = "Legend1";
-            series6.Name = "Series1";
-            this.rpmChart.Series.Add(series6);
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.Legend = "Legend1";
+            series2.Name = "Toerental(Rpm)";
+            this.rpmChart.Series.Add(series2);
             this.rpmChart.Size = new System.Drawing.Size(683, 415);
             this.rpmChart.TabIndex = 3;
             this.rpmChart.Text = "rpmChart";
             // 
             // powerChart
             // 
-            chartArea7.Name = "ChartArea1";
-            this.powerChart.ChartAreas.Add(chartArea7);
-            legend7.Name = "Legend1";
-            this.powerChart.Legends.Add(legend7);
+            chartArea3.Name = "ChartArea1";
+            this.powerChart.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.powerChart.Legends.Add(legend3);
             this.powerChart.Location = new System.Drawing.Point(0, 447);
-            this.powerChart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.powerChart.Margin = new System.Windows.Forms.Padding(4);
             this.powerChart.Name = "powerChart";
-            series7.ChartArea = "ChartArea1";
-            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series7.Legend = "Legend1";
-            series7.Name = "Series1";
-            this.powerChart.Series.Add(series7);
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series3.Legend = "Legend1";
+            series3.Name = "zwaarte(Watt)";
+            this.powerChart.Series.Add(series3);
             this.powerChart.Size = new System.Drawing.Size(683, 415);
             this.powerChart.TabIndex = 4;
             this.powerChart.Text = "powerChart";
             // 
             // speedChart
             // 
-            chartArea8.Name = "ChartArea1";
-            this.speedChart.ChartAreas.Add(chartArea8);
-            legend8.Name = "Legend1";
-            this.speedChart.Legends.Add(legend8);
+            chartArea4.Name = "ChartArea1";
+            this.speedChart.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.speedChart.Legends.Add(legend4);
             this.speedChart.Location = new System.Drawing.Point(661, 447);
-            this.speedChart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.speedChart.Margin = new System.Windows.Forms.Padding(4);
             this.speedChart.Name = "speedChart";
-            series8.ChartArea = "ChartArea1";
-            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series8.Legend = "Legend1";
-            series8.Name = "Series1";
-            this.speedChart.Series.Add(series8);
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series4.Legend = "Legend1";
+            series4.Name = "Snelheid(Km/h)";
+            this.speedChart.Series.Add(series4);
             this.speedChart.Size = new System.Drawing.Size(683, 415);
             this.speedChart.TabIndex = 5;
             this.speedChart.Text = "speedChart";
@@ -235,7 +244,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.menuStrip2);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Doctor";
             this.Text = "IP2 Lezer";
             ((System.ComponentModel.ISupportInitialize)(this.pulseChart)).EndInit();
@@ -268,6 +277,7 @@
         private System.Windows.Forms.MenuStrip menuStrip2;
         private System.Windows.Forms.ToolStripTextBox gewichtBox;
         private System.Windows.Forms.ToolStripTextBox leeftijdBox;
+        private System.Windows.Forms.ToolStripMenuItem haalNieuweGevensOpToolStripMenuItem;
     }
 }
 
